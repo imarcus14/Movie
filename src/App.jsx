@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import Favourites from './pages/Favourites/Favourites'
 import MovieCardPage from './pages/MovieCardPage/MovieCardPage'
+import Navbar from './components/Navbar/Navbar'
 
 function App() {
   
@@ -11,7 +12,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <main className='main-content'>
+        <Navbar/>
+        <main className='main'>
           <Routes>
             <Route path="/" element={<MovieCardPage/>}/>
             <Route path="/favourites" element={<Favourites/>}/>
