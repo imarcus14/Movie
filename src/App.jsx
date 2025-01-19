@@ -1,28 +1,28 @@
-import './App.scss'
+import "./App.scss";
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Favourites from './pages/Favourites/Favourites'
-import MovieCardPage from './pages/MovieCardPage/MovieCardPage'
-import Navbar from './components/Navbar/Navbar'
+import Favourites from "./pages/Favourites/Favourites";
+import MovieCardPage from "./pages/MovieCardPage/MovieCardPage";
+import MovieProvider from "./contexts/MovieContexts";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
-  
-
   return (
     <>
       <BrowserRouter>
-        <Navbar/>
-        <main className='main'>
-          <Routes>
-            <Route path="/" element={<MovieCardPage/>}/>
-            <Route path="/favourites" element={<Favourites/>}/>
-
-          </Routes>
-        </main>
+        <MovieProvider>
+          <Navbar />
+          <main className="main">
+            <Routes>
+              <Route path="/" element={<MovieCardPage />} />
+              <Route path="/favourites" element={<Favourites />} />
+            </Routes>
+          </main>
+        </MovieProvider>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
