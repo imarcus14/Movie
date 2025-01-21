@@ -1,3 +1,6 @@
+@use '../../partials/globals.scss' as *;
+
+
 .search-form{
     display: flex;
     justify-content: center;
@@ -9,6 +12,9 @@
     padding: 0.5rem;
     border: none;
     border-radius: 1.5rem;
+    @include tablet{
+        width: 35%;
+    }
 }
 
 .search-button{
@@ -16,5 +22,22 @@
     border-radius: 1.5rem;
     padding: 0.5rem;
     font-family: "Roboto";
+    @include tablet{
+        width: 10%;
+    }
+    
 }
 
+.movies-grid{
+    @include tablet{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+// @media (min-width: 768px ){
+//     .movies-grid{
+//         display: flex;
+//         flex-wrap: wrap;
+//     }
+// }

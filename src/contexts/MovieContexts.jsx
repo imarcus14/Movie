@@ -8,17 +8,32 @@ const MovieProvider = ({ children }) => {
   const [favourite, setFavourite] = useState([]);
 
   useEffect(() => {
-    const storedFavs = localStorage.getItem("favourites");
-
-    if (storedFavs) setFavourite(JSON.parse(storedFavs));
+    try {
+      const storedFavs = localStorage.getItem("favourites");
+      if (storedFavs) {
+        setFavourite(JSON.parse(storedFavs));
+      }
+    } catch (error) {
+      console.error("Failed to load favourites from localStorage:", error);
+      setFavourite([]);
+    }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("favourites", JSON.stringify(favourite));
+    try {
+      localStorage.setItem("favourites", JSON.stringify(favourite));
+    } catch (error) {
+      console.error("Failed to save favourites to localStorage:", error);
+    }
   }, [favourite]);
 
   const addToFav = (movie) => {
-    setFavourite((prev) => [...prev, movie]);
+    setFavourite((prev) => {
+      if (!prev.some((fav) => fav.id === movie.id)) {
+        return [...prev, movie];
+      }
+      return prev;
+    });
   };
 
   const removeFromFav = (movieId) => {

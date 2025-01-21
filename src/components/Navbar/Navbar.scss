@@ -1,10 +1,17 @@
+@use '../../partials/globals.scss' as *;
+
 .navbar{
     display: flex;
     justify-content: space-between;
     background-color: #4E3D42;
     padding: 0.75rem 1rem;
     font-family: "Roboto";
-    // height: 8vh;
+    @include tablet{
+        padding: 1.75rem 2rem;
+    }
+    @include desktop{
+        padding: 2.75rem 2rem;
+    }
     &__links{
         display: flex;
         gap: 0.5rem;

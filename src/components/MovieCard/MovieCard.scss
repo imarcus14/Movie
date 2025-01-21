@@ -1,3 +1,6 @@
+@use '../../partials/globals.scss' as *;
+
+
 .movie-card{
     display: flex;
     flex-direction: column;
@@ -9,16 +12,32 @@
     box-shadow: 5px 10px 4px #000000;
     background-color: #4E3D42;
     font-family: "Roboto";
+    @include tablet{
+        width: 28%;
+    }
+    @include desktop{
+        width: 22%;
+    }
     
     &__image-solo{
         width: 15rem;
         height: 22rem;
+        @include tablet{
+            width: 12rem;
+            height: 18rem;
+        }
+        @include desktop{
+            width: 15rem;
+            height: 22rem;
+        }
     }
 
     &__favourite{
         border-radius: 1rem;
         width: 15%;
         padding: 0.3rem;
+        border: none;
+        margin-top: 0.5rem;
     }
 
     &__info{
@@ -33,5 +52,5 @@
 
 
 .active{
-    fill: red;
+    background-color: red;
 }
